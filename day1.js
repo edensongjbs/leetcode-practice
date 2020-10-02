@@ -45,3 +45,30 @@ public class Solution {
         return x == revertedNumber || x == revertedNumber/10;
     }
 }
+
+//Reverse Integer
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+     let y = parseInt(x.toString().split('').reverse().join(''))
+     if (y >= (2**31)) {return 0}
+     if (x < 0) {y = 0-y}
+     return y
+};
+
+// function numDigits(x) {
+//     return (Math.log10((x ^ (x >> 31)) - (x >> 31)) | 0) + 1;
+// }
+
+// var reverse = function(x) {
+//     let lastDigit = x%10
+//     if (numDigits(x) <= 1) {return x}
+//     let answer = parseInt(`${lastDigit}${reverse(Math.floor(x >= 0 ? x/10 : 0-x/10))}`)
+//     if (answer >= (2**31)) {return 0}
+//     // return x >= 0 ? answer : 0-answer
+//     return answer
+// }
+
