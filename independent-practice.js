@@ -59,3 +59,32 @@ var lengthOfLongestSubstring = function(s) {
     }
     return longest > s.length-i2 ? longest : s.length-i2
 };
+
+var lengthOfLongestSubstring = function(s) {
+    let longest=0, map={}, lastAppearedAt, limitedBy
+    if (s.length<1) {return 0}
+    for (let i1=0; i1 < s.length; i1++) {
+        lastAppearedAt = map[s[i1]]
+        if ( lastAppearedAt || lastAppearedAt===0) {
+            // console.log(i1, i2)
+            if (longest < i1-lastAppearedAt) {
+                longest=i1-lastAppearedAt
+                limtedBy=s[i1]
+            }
+            map[s[i1]]=i1
+            // i2=i2+1
+            // h="if"
+        }
+        else {
+            lastAppearedAt = lastAppearedAt || 0
+            console.log(i1, lastAppearedAt, longest, map)
+            if (longest < i1-s[limitedBy]-1) {
+                longest = i1-s[limitedBy]-1
+            }
+            map[s[i1]]=i1
+            // h="else"
+        }
+        // console.log(h, i1, i2, longest, map)
+    }
+    return longest > s.length-map[s[s.length-1]] ? longest : s.length-map[s[s.length-1]]
+};
