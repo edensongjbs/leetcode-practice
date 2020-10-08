@@ -37,3 +37,25 @@ var addTwoNumbers = function(l1, l2) {
     currentNode.next = carryOver>0 ? {val:carryOver, next:null} : null
     return firstNode
 };
+
+
+
+var lengthOfLongestSubstring = function(s) {
+    let i2=0, longest=0, map={}, h
+    for (let i1=0; i1 < s.length; i1++) {
+        if (map[s[i1]] || map[s[i1]]===0) {
+            // console.log(i1, i2)
+            longest = longest >= i1-i2 ? longest : i1-i2
+            map[s[i1]]=i1
+            i2=i2+1
+            // h="if"
+        }
+        else {
+            // if (i1===s.length-1 && longest <= i1-i2){longest++}
+            map[s[i1]]=i1
+            // h="else"
+        }
+        // console.log(h, i1, i2, longest, map)
+    }
+    return longest > s.length-i2 ? longest : s.length-i2
+};
