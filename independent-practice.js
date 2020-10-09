@@ -89,7 +89,6 @@ var lengthOfLongestSubstring = function(s) {
     return longest > s.length-map[s[s.length-1]] ? longest : s.length-map[s[s.length-1]]
 };
 
-<<<<<<< HEAD
 // Good solution
 var romanToInt = function(s) {
     arabic=0
@@ -139,7 +138,6 @@ var longestCommonPrefix = function(strs) {
         }
     }
     return longest
-=======
 
 /**
  * @param {string} s
@@ -156,5 +154,4 @@ var longestPalindrome = function(s) {
             }
         }
     }
->>>>>>> e1160855be04ea9360d700fba49b0c3bc0812fba
 };
