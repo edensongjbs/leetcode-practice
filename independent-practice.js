@@ -88,3 +88,21 @@ var lengthOfLongestSubstring = function(s) {
     }
     return longest > s.length-map[s[s.length-1]] ? longest : s.length-map[s[s.length-1]]
 };
+
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+    let i2, longest=""
+    for (let i=1; i<s.length; i++) {
+        if s[i]==s[i-1] {
+            longest = longest.length < 2 ? s.slice(i-1, i+1) : longest
+            i2=0
+            while (i+i2<s.length && i-1-i2 >= 0) {
+                //compare 
+            }
+        }
+    }
+};
