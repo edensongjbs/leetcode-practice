@@ -88,3 +88,54 @@ var lengthOfLongestSubstring = function(s) {
     }
     return longest > s.length-map[s[s.length-1]] ? longest : s.length-map[s[s.length-1]]
 };
+
+// Good solution
+var romanToInt = function(s) {
+    arabic=0
+    for (let i=0; i < s.length; i++) {
+        switch (s[i]) {
+            case 'C':
+                arabic += s[i+1]==='D' || s[i+1]==='M'? -100 : 100
+                break
+            case 'X':
+                arabic += s[i+1]==='L' || s[i+1]==='C'? -10 : 10 
+                break
+            case 'I':
+                arabic += (s[i+1]==='V' || s[i+1]==='X') ? -1 : 1
+                break
+            case 'M':
+                arabic += 1000
+                break
+            case 'D':
+                arabic += 500
+                break
+            case 'L':
+                arabic += 50
+                break
+            case 'V':
+                arabic += 5
+                break
+        }
+    }
+    return arabic
+};
+
+//naive solution
+var longestCommonPrefix = function(strs) {
+    let longest=""
+    if (!strs || strs.length<1) {return longest}
+    if (strs.length ===1) {return strs[0]}
+    for (let i=0; i<strs[0].length; i++) {
+        let curChar=strs[0][i]
+        for (let i2=1; i2<strs.length; i2++) {
+            if (strs[i2][i]!==curChar){return longest}
+            else{
+                    if (i2===strs.length-1) {
+                    console.log(longest, curChar)
+                    longest+=curChar
+                }
+            }
+        }
+    }
+    return longest
+};
