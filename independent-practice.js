@@ -155,3 +155,67 @@ var longestPalindrome = function(s) {
         }
     }
 };
+
+
+// TERRIBLE 3 sum solution .  Not finished
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+    const sol = []
+    for (let i=0; i < nums.length-2; i++) {
+        for (let j=i+1; j < nums.length-1; j++) {
+            for (let k=j+1; k < nums.length; k++) {
+                if (nums[i]+nums[j]+nums[k]===0) {
+                    
+                    sol.push([nums[i], nums[j], nums[k]].sort())
+                }
+            }
+        }
+    }
+    for (let i=0; i<sol.length-1; i++) {
+        let checking = sol[i]
+        for let (j=i+1; j<sol.length; j++) {
+            if (sol[i][0]===sol[j][0] && sol[i][1]===sol[j][1] && sol[i][2]===sol[j][2])           {
+                i
+            }
+        }
+            
+        }
+    }
+    return sol 
+  };
+
+
+  // Parentheses .  Faster than 75%
+
+
+var isValid = function(s) {
+    const pars = []
+    for (let i=0; i<s.length; i++) {
+        if (s[i]==="(" || s[i]==="[" || s[i]==="{") {
+            pars.push(s[i])
+        }
+        else {
+            let e = pars.pop()
+            switch (s[i]) {
+                case ')' :
+                    if (e!=='('){return false}
+                    break
+                case ']':
+                    if (e!=='['){return false}
+                    break
+                case '}':
+                    if (e!=='{'){return false}
+                    break
+                default:
+                    return false
+                    break
+            }
+        }
+    }
+    if (pars.length > 0) {return false}
+    else {return true}
+};
