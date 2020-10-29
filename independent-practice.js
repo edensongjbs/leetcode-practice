@@ -269,3 +269,16 @@ var countAndSay = function(n) {
     if (times>0) {str+=(times.toString()+num)}
     return str
 };
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+    let wa=s.split(' ').filter(w => w!='')
+    if (wa.length > 0) {
+        return wa[wa.length-1].split('').length
+    }
+    else {
+        return 0
+    }
