@@ -246,3 +246,26 @@ var searchInsert = function(nums, target) {
     }
     return nums.length
 };
+
+/**
+ * @param {number} n
+ * @return {string}
+ */
+var countAndSay = function(n) {
+    if (n===1) {
+        return "1"
+    }
+    let cas = countAndSay(n-1), num=cas[0], times=0, str=""
+    for (let i=0; i<cas.length; i++){
+        if (cas[i]===num) {
+            times++
+        }
+        else {
+            str+=(times.toString()+num)
+            num=cas[i]
+            times=1
+        }
+    }
+    if (times>0) {str+=(times.toString()+num)}
+    return str
+};
