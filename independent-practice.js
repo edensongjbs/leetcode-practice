@@ -282,3 +282,23 @@ var lengthOfLastWord = function(s) {
     else {
         return 0
     }
+
+    /**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+var plusOne = function(digits) {
+    let inc=1
+    for (let i=digits.length-1; i>=0; i--) {
+        if (inc===0) {return digits}
+        digits[i] += inc
+        if (digits[i] > 9) {
+            digits[i]= digits[i]%10
+            inc=1
+        }
+        else {
+            inc=0
+        }
+    }
+    return inc > 0 ? [1, ...digits] : digits
+};
