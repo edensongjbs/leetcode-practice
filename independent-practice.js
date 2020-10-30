@@ -303,3 +303,12 @@ var plusOne = function(digits) {
 var mySqrt = function(x) {
     return parseInt(Math.sqrt(x))
 };
+
+var climbStairs = function(n) {
+    if (n <= 2){return n}
+    let ar=[1,2]
+    for (let i=2; i<n; i++) {
+        ar[i]=ar[i-1]+ar[i-2]
+    }
+    return ar[n-1]
+};
