@@ -315,16 +315,14 @@ var climbStairs = function(n) {
 
 var deleteDuplicates = function(head) {
     if (!head){return null}
-    let tempVal=head.val
     let behind=head, ahead=behind.next
     while (behind && behind.next) {
         if (!ahead){break}
-        if (ahead.val===tempVal) {
+        if (ahead.val===behind.val) {
             ahead=ahead.next
             behind.next=ahead
         }
         else {
-            tempVal=ahead.val
             behind=behind.next
             ahead=ahead.next
         }
