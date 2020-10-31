@@ -329,3 +329,21 @@ var deleteDuplicates = function(head) {
     }
     return head
 };
+
+var merge = function(nums1, m, nums2, n) {
+    let j=0, current=n+m-1
+    m--
+    n--
+    while (current >= 0) {
+        if (n<0 || nums1[m] >= nums2[n]) {
+            nums1[current]=nums1[m]
+            m--
+        }
+        else {
+            nums1[current]=nums2[n]
+            n--
+        }
+        current--
+    }
+    return nums1
+};
