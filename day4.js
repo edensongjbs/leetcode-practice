@@ -46,3 +46,6 @@ for (let i = alcm; i <= bgcd; i=i+alcm) {
 }
 return count
 }
+
+
+// Need To Work on Implementing LCM and GCD
