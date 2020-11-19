@@ -12,12 +12,23 @@
 //     console.log((usage))
 //   }
 
+//My Good Solution
   function calcDroneMinEnergy(route) {
     // your code goes here
     let justZs = route.map(e => e[2])
     let maxHeight = Math.max(...justZs)
     return maxHeight-justZs[0]
   }
+// Their elegant solution
+//   function calcDroneMinEnergy(route) {
+//    maxHeight = route[0][2]
+
+//    for i from 1 to route.length-1:
+//        if (route[i][2] > maxHeight):
+//            maxHeight = route[i][2]
+
+//    return maxHeight - route[0][2]
+//   }
 
   calcDroneMinEnergy([ [0,   2, 10],
     [3,   5,  0],
