@@ -15,4 +15,8 @@ function gcd(a, b) {
     // 
 }
 
-console.log(gcd(7, 57))
+function lcm(a, b) {
+    return (a*b)/(gcd(a,b))
+}
+
+console.log(lcm(21, 6))
