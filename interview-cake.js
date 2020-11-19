@@ -104,8 +104,19 @@ const hiCal = (meetings) => {
     return condensedMeetings
 }
 
+const reverseStringInPlace = (str) => {
+    let strar = str.split('')
+    let temp
+    for (let i=0; i < strar.length/2; i++) {
+        temp = strar[i]
+        strar[i] = strar[strar.length-1-i]
+        strar[strar.length-1-i] = temp
+    }
+    return strar.join('')
+}
 
-module.exports = hiCal
+
+module.exports = { hiCal, reverseStringInPlace }
 
 // let test =   [
 //     { startTime: 0,  endTime: 1 },

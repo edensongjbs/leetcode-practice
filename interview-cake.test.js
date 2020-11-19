@@ -1,5 +1,6 @@
 const { test, expect } = require('@jest/globals')
-const hiCal = require('./interview-cake')
+// const { reverseStringInPlace } = require('./interview-cake')
+const { hiCal, reverseStringInPlace } = require('./interview-cake')
 // const jest = require('jest')
 
 test('hiCal returns condensed meetings', () => {
@@ -16,4 +17,9 @@ test('hiCal returns condensed meetings', () => {
         { startTime: 9, endTime: 12 },
     ]
     expect(hiCal(testCal)).toEqual(expResult)
+})
+
+test('reverseStringInPlace reverses string in place', () => {
+    expect(reverseStringInPlace('cat')).toBe('tac')
+    expect(reverseStringInPlace('cats')).toBe('stac')
 })
