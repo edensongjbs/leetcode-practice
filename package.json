@@ -1,0 +1,24 @@
+{
+  "name": "leetcode-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "day 3.js",
+  "dependencies": {
+    "jest": "^26.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edensongjbs/leetcode-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edensongjbs/leetcode-practice/issues"
+  },
+  "homepage": "https://github.com/edensongjbs/leetcode-practice#readme"
+}
