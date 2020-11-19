@@ -1,6 +1,6 @@
 const { test, expect } = require('@jest/globals')
-const hiCal = require('./interviewCake')
-const jest = require('jest')
+const hiCal = require('./interview-cake')
+// const jest = require('jest')
 
 test('hiCal returns condensed meetings', () => {
     let testCal =   [
@@ -15,5 +15,5 @@ test('hiCal returns condensed meetings', () => {
         { startTime: 3, endTime: 8 },
         { startTime: 9, endTime: 12 },
     ]
-    expect(testCal).toEqual(expResult)
+    expect(hiCal(testCal)).toEqual(expResult)
 })
