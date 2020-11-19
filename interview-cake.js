@@ -115,8 +115,33 @@ const reverseStringInPlace = (str) => {
     return strar.join('')
 }
 
+const reverseWordInPlace = (str) => {
+    let strar = str.split('')
+    let startIndex = 0, endIndex
+    while (startIndex < strar.length) {
+        //find the endIndex of this word
+        endIndex = startIndex
+        while ((endIndex < strar.length) &&
+        (strar[endIndex+1]!==' ')) {
+            endIndex++
+        }
+        // reverse word
+        let i=startIndex, j=endIndex
+        while (i < j) {
+            let temp = strar[i]
+            strar[i] = strar[j]
+            strar[j] = temp
+            j--, i++
+        }
+        //advance startIndex and endIndex
+        if (endIndex+2 >= strar.length){break}
+        startIndex=endIndex+2
+    }
+    return strar.join('')
+}
 
-module.exports = { hiCal, reverseStringInPlace }
+
+module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
 // let test =   [
 //     { startTime: 0,  endTime: 1 },
