@@ -39,25 +39,71 @@ function contained(meeting, time) {
     return (time >= meeting.startTime && time <= meeting.endTime)
 }
 
-function hiCal(meetings) {
-    const combinedMeetings = []
-    for (let i=0; i < meetings.length; i++) {
-        let combinedMeeting = meetings[i]
-        if (meetings[i].done){continue}
-        for (let j=i+1; j<meetings.length; j++) {
-            if (meetings[j].done){continue}
-            if (((contained(combinedMeeting, meetings[j].startTime))
-             && (!contained(combinedMeeting, meetings[j].endTime)))
-             || ((contained(combinedMeeting, meetings[j].endTime))
-             && (!contained(combinedMeeting, meetings[j].startTime)))){
-                combinedMeeting = combineBlock(combinedMeeting, meetings[j])
-                meetings[j].done = true
-             }
+// quadratic solution
+// function hiCal(meetings) {
+//     const combinedMeetings = []
+//     for (let i=0; i < meetings.length; i++) {
+//         let combinedMeeting = meetings[i]
+//         if (meetings[i].done){continue}
+//         for (let j=i+1; j<meetings.length; j++) {
+//             if (meetings[j].done){continue}
+//             if (((contained(combinedMeeting, meetings[j].startTime))
+//              && (!contained(combinedMeeting, meetings[j].endTime)))
+//              || ((contained(combinedMeeting, meetings[j].endTime))
+//              && (!contained(combinedMeeting, meetings[j].startTime)))){
+//                 combinedMeeting = combineBlock(combinedMeeting, meetings[j])
+//                 meetings[j].done = true
+//              }
+//         }
+//         combinedMeetings.push(combinedMeeting)
+//     }
+//     return combinedMeetings
+// }
+
+//refactor for nlogn
+
+// function hiCal(meetings) {
+//     if (meetings.length < 2) {
+//         return meetings[0]
+//     }
+//     if (meetings.length === 2) {
+//         if (((contained(meetings[0], meetings[1].startTime))
+//              && (!contained(meetings[0], meetings[1].endTime)))
+//              || ((contained(meetings[0], meetings[1].endTime))
+//              && (!contained(meetings[0], meetings[1].startTime)))){
+//                 combinedMeeting = combineBlock(combinedMeeting, meetings[j])
+//                 meetings[j].done = true
+//              }
+//     }
+//     const combinedMeetings = []
+//     for (let i=0; i < meetings.length; i++) {
+        
+            
+//         }
+//         combinedMeetings.push(combinedMeeting)
+//     }
+//     return combinedMeetings
+// }
+// nlogn solution - trick is to sort first
+
+const hiCal = (meetings) => {
+    meetings.sort ( (meetingA, meetingB) => {
+        return meetingA.startTime - meetingB.startTime
+    })
+    let condensedMeetings = [meetings[0]], j=0
+    for (let i=1; i<meetings.length; i++){
+        if ((meetings[i].endTime > condensedMeetings[j].endTime) &&
+        (meetings[i].startTime <= condensedMeetings[j].endTime)) {
+            condensedMeetings[j].endTime = meetings[i].endTime
         }
-        combinedMeetings.push(combinedMeeting)
+        else {
+            condensedMeetings.push(meetings[i])
+            j++
+        }
     }
-    return combinedMeetings
+    return condensedMeetings
 }
+
 
 module.exports = hiCal
 
