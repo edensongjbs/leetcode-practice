@@ -108,19 +108,14 @@ const isBST = (root, lower, upper) => {
     if (!root.left && !root.right) {return true}
     if (root.left && root.right) {
         return isBST(root.left, lower, root.value) && 
-        isBST(root.right, root.value, upper) &&
-        root.left.value <= root.value &&
-        root.right.value >= root.value
+        isBST(root.right, root.value, upper)
     }
     if (root.left) {
-        return isBST(root.left, lower, root.value) &&
-        root.left.value <= root.value
+        return isBST(root.left, lower, root.value)
     }
     if (root.right) {
-        return isBST(root.right, root.value, upper) &&
-        root.right.value >= root.value
+        return isBST(root.right, root.value, upper)
     }
-    return false
 }
 
 module.exports = { isSuperBalanced, isBST, BinaryTreeNode }
