@@ -118,6 +118,26 @@ const isBST = (root, lower, upper) => {
     }
 }
 
+const largest = (root) => {
+    while (root.right) {
+        root = root.right
+    }
+    return root.value
+}
+
+const secondLargest = (root, pred=null) => {
+    console.log(root, pred)
+    if (root.right){
+        return secondLargest(root.right, root)
+    }
+    else if (root.left){
+        return largest(root.left)             
+    }
+    else {
+        return pred.value
+    }
+}
+
 // Interview Cake Iterative Solution
 // function isBinarySearchTree(treeRoot) {
 
@@ -165,5 +185,5 @@ const isBST = (root, lower, upper) => {
 //     return true;
 //   }
 
-module.exports = { isSuperBalanced, isBST, BinaryTreeNode }
+module.exports = { isSuperBalanced, isBST, secondLargest, BinaryTreeNode }
 
