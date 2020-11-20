@@ -99,21 +99,25 @@ const isSuperBalanced = (root) => {
 //     return true;
 //   }
 
-const isBST = (root) => {
+const isBST = (root, lower, upper) => {
+    upper = upper ? upper : Number.POSITIVE_INFINITY
+    lower = lower ? lower : Number.NEGATIVE_INFINITY
+    
     if (!root) {return true}
+    if (root.value < lower || root.value > upper) {return false}
     if (!root.left && !root.right) {return true}
     if (root.left && root.right) {
-        return isBST(root.left) && 
-        isBST(root.right) &&
+        return isBST(root.left, lower, root.value) && 
+        isBST(root.right, root.value, upper) &&
         root.left.value <= root.value &&
         root.right.value >= root.value
     }
     if (root.left) {
-        return isBST(root.left) &&
+        return isBST(root.left, lower, root.value) &&
         root.left.value <= root.value
     }
     if (root.right) {
-        return isBST(root.right) &&
+        return isBST(root.right, root.value, upper) &&
         root.right.value >= root.value
     }
     return false
