@@ -1,6 +1,6 @@
 const { test, expect } = require('@jest/globals')
 // const { reverseStringInPlace } = require('./interview-cake')
-const { isSuperBalanced, BinaryTreeNode } = require('./bst')
+const { isSuperBalanced, isBST, BinaryTreeNode } = require('./bst')
 
 describe('isSuperBalance', () => {
     let tree1 = new BinaryTreeNode(5)
@@ -37,4 +37,41 @@ describe('isSuperBalance', () => {
         // expect(isSuperBalanced(tree4)).toBe(false)
         expect(isSuperBalanced(tree5)).toBe(false)
     })
+})
+
+describe('isBST', () => {
+    let tree1 = new BinaryTreeNode(5)
+    
+    let tree2 = null
+    
+    let tree3 = new BinaryTreeNode(5)
+    tree3.insertLeft(3)
+    tree3.left.insertLeft(1)
+    tree3.left.insertRight(4)
+    tree3.insertRight(6)
+
+    let tree4 = new BinaryTreeNode(6)
+    tree4.insertLeft(3)
+    tree4.left.insertLeft(1)
+    tree4.left.insertRight(4)
+    tree4.insertRight(5)
+
+    let tree5 = new BinaryTreeNode(2)
+    tree5.insertRight(1)
+
+    let tree6 = new BinaryTreeNode(2)
+    tree6.insertLeft(1)
+
+    test('Returns true when Tree is a valid BST', () => {
+        expect(isBST(tree1)).toBe(true)
+        expect(isBST(tree2)).toBe(true)
+        expect(isBST(tree3)).toBe(true)
+        expect(isBST(tree6)).toBe(true)
+    })
+
+    test('Returns false when Tree is not a valid BST', () => {
+        expect(isBST(tree4)).toBe(false)
+        expect(isBST(tree5)).toBe(false)
+    })
+
 })
