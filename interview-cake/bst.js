@@ -38,7 +38,8 @@ const isSuperBalanced = (root) => {
         }
     }
     console.log(leafDepths)
-    if (leafDepths.length = 0) {return true}
+    // if (leafDepths.length = 0) {return true}
+    leafDepths.push(theNode.depth)
     const max = Math.max(...leafDepths)
     const min = Math.min(...leafDepths)
     console.log(min, max)
