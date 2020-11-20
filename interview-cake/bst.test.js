@@ -27,6 +27,8 @@ describe('isSuperBalance', () => {
     tree5.right.insertRight(13)
     tree5.right.right.insertRight(8)
 
+    
+
     test('Returns true when Tree is SuperBalanced', () => {
         expect(isSuperBalanced(tree1)).toBe(true)
         expect(isSuperBalanced(tree2)).toBe(true)
@@ -62,6 +64,14 @@ describe('isBST', () => {
     let tree6 = new BinaryTreeNode(2)
     tree6.insertLeft(1)
 
+    let gotchaTree = new BinaryTreeNode(50)
+    gotchaTree.insertLeft(30)
+    gotchaTree.left.insertLeft(20)
+    gotchaTree.left.insertRight(60)
+    gotchaTree.insertRight(80)
+    gotchaTree.right.insertLeft(70)
+    gotchaTree.right.insertRight(90)
+
     test('Returns true when Tree is a valid BST', () => {
         expect(isBST(tree1)).toBe(true)
         expect(isBST(tree2)).toBe(true)
@@ -72,6 +82,7 @@ describe('isBST', () => {
     test('Returns false when Tree is not a valid BST', () => {
         expect(isBST(tree4)).toBe(false)
         expect(isBST(tree5)).toBe(false)
+        expect(isBST(gotchaTree)).toBe(false)
     })
 
 })
