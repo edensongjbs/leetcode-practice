@@ -30,3 +30,22 @@ function deleteNode(nodeToDelete) {
     return false;
   }
   
+  function reverse(headOfList) {
+
+    // Reverse the linked list in place
+    if (!headOfList){return null}
+    if (!headOfList.next){return headOfList}
+    let reversedList = headOfList
+    let currentNode = headOfList.next
+    reversedList.next=null
+    while (currentNode.next) {
+      nextNode = currentNode.next
+      currentNode.next=reversedList
+      reversedList=currentNode
+      
+      currentNode= nextNode
+    }
+    currentNode.next=reversedList
+    return currentNode
+  }
+  
