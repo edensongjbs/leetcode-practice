@@ -15,3 +15,18 @@ function deleteNode(nodeToDelete) {
     }
   
   }
+
+  function containsCycle(firstNode) {
+
+    // Check if the linked list contains a cycle
+    if (!firstNode){return false}
+    slow = firstNode, fast = firstNode
+    if (!fast.next){return false}
+    while (fast.next.next) {
+      fast=fast.next.next
+      slow=slow.next
+      if (fast===slow){return true}
+    }
+    return false;
+  }
+  
