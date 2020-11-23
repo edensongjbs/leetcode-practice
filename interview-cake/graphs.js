@@ -16,7 +16,7 @@ class Queue {
   }
 
   function tracePath(links, node) {
-    console.log(links, node)
+    // console.log(links, node)
     let ar = []
     while (links[node]) {
           console.log(ar)
@@ -46,5 +46,19 @@ const getPath = (graph, startNode, endNode) => {
   }
   return null;
   }
+
+  function findDuplicate(intArray) {
+
+    // Find a number that appears more than once ... in O(n) time
+    let i = intArray[0]
+    while (intArray[i]!==null) {
+      const temp = intArray[i]
+      intArray[i]=null
+      i = temp
+    }
+    return i;
+  }
+
+  
 
   module.exports = { getPath, Queue }
