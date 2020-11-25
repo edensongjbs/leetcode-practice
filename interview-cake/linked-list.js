@@ -87,3 +87,34 @@ function deleteNode(nodeToDelete) {
   
   
   */
+
+ function mergeArrays(myArray, alicesArray) {
+
+  // Combine the sorted arrays into one large sorted array
+  let sortedArray = []
+  while (myArray.length && alicesArray.length) {
+    if (myArray[0] <= alicesArray[0]) {
+      sortedArray.push(myArray.shift())
+    }
+    else {
+      sortedArray.push(alicesArray.shift())
+    }
+  }
+  if (myArray.length){
+    return sortedArray.concat(myArray)
+  }
+  if (alicesArray.length){
+    return sortedArray.concat(alicesArray)
+  }
+  return sortedArray
+}
+
+/*
+
+inputs: 2 sorted arrays
+outpus: returns a single sorted array combining all elements from input arrays
+
+constraints
+edge cases: 1 array empty or null, both arrays null, both arrays empty
+
+*/
