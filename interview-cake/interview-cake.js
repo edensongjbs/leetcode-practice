@@ -140,6 +140,39 @@ const reverseWordInPlace = (str) => {
     return strar.join('')
 }
 
+function reverseWords(message) {
+
+    // Decode the message by reversing the words
+    let i = 0, j = message.length-1
+    while (i < j) {
+      let temp = message[i]
+      message[i] = message[j]
+      message[j] = temp
+      i++
+      j--
+    }
+    let startWord=0, endWord=0
+    while (message[endWord]) {
+      while (message[endWord] && message[endWord]!=' ') {
+        endWord++
+      }
+      i = startWord
+      j = endWord-1
+      while (i < j) {
+        let temp = message[i]
+        message[i] = message[j]
+        message[j] = temp
+        i++
+        j--
+      }
+      if (message[endWord+1]){
+        startWord = endWord+1
+        endWord++
+      }
+    }
+    return message
+  }
+
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
