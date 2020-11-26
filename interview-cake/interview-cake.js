@@ -194,6 +194,27 @@ function reverseWords(message) {
     return sortedArray
   }
 
+  function isFirstComeFirstServed(takeOutOrders, dineInOrders, servedOrders) {
+
+    // Check if we're serving orders first-come, first-served
+    let i=0, j=0, k=0
+    while ((i < takeOutOrders.length || j < dineInOrders.length) && k < servedOrders.length) {
+      if (servedOrders[k]===takeOutOrders[i]){
+        i++
+        k++
+      }
+      else if (servedOrders[k]===dineInOrders[j]) {
+        j++
+        k++
+      }
+      else {
+        return false
+      }
+    }
+    
+    return k < servedOrders.length || i < takeOutOrders.length || j < dineInOrders.length ? false : true
+  }
+
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
