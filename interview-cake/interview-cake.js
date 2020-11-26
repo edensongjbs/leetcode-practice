@@ -173,6 +173,27 @@ function reverseWords(message) {
     return message
   }
 
+  function mergeArrays(myArray, alicesArray) {
+
+    // Combine the sorted arrays into one large sorted array
+    let sortedArray = []
+    while (myArray.length && alicesArray.length) {
+      if (myArray[0] <= alicesArray[0]) {
+        sortedArray.push(myArray.shift())
+      }
+      else {
+        sortedArray.push(alicesArray.shift())
+      }
+    }
+    if (myArray.length){
+      return sortedArray.concat(myArray)
+    }
+    if (alicesArray.length){
+      return sortedArray.concat(alicesArray)
+    }
+    return sortedArray
+  }
+
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
