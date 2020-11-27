@@ -215,6 +215,23 @@ function reverseWords(message) {
     return k < servedOrders.length || i < takeOutOrders.length || j < dineInOrders.length ? false : true
   }
 
+  function canTwoMoviesFillFlight(movieLengths, flightLength) {
+
+    // Determine if two movie runtimes add up to the flight length
+    let movieObj= {}
+    for (let i=0; i < movieLengths.length; i++) {
+      if (movieObj[movieLengths[i]]) {movieObj[movieLengths[i]]++}
+      else {movieObj[movieLengths[i]]=1}
+    }
+    for (let i=0; i < movieLengths.length; i++) {
+      if (movieLengths[i]*2===flightLength) {
+        if (movieObj[movieLengths[i]] > 1) {return true}
+      }
+      else if (movieObj[flightLength-movieLengths[i]]) {return true}
+    }
+    return false
+  }
+
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
