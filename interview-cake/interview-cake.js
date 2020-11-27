@@ -232,6 +232,25 @@ function reverseWords(message) {
     return false
   }
 
+  function hasPalindromePermutation(theString) {
+
+    // Check if any permutation of the input is a palindrome
+    theObj = {}
+    for (let i=0; i < theString.length; i++) {
+      if (theObj.hasOwnProperty(theString[i])) {
+        theObj[theString[i]]=!theObj[theString[i]]
+      }
+      else {
+        theObj[theString[i]]=false
+      }
+    }
+    let oddCt = 0
+    for (const i in theObj) {
+      if (theObj[i]===false) {oddCt++} 
+    }
+    return oddCt > 1 ? false : true
+  }
+
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
