@@ -315,6 +315,23 @@ function reverseWords(message) {
     return prodAr;
   }
 
+  function getRandom(floor, ceiling) {
+    return Math.floor(Math.random() * (ceiling - floor + 1)) + floor;
+  }
+  
+  function shuffle(array) {
+  
+    // Shuffle the input in place
+    for (let i=0; i < array.length; i++) {
+      let temp = array[i]
+      let rand = getRandom(i, array.length-1)
+      array[i] = array[rand]
+      array[rand] = temp
+    }
+    return array
+  }
+  
+
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
 // let test =   [
