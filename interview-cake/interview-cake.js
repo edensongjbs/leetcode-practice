@@ -251,6 +251,27 @@ function reverseWords(message) {
     return oddCt > 1 ? false : true
   }
 
+  function sortScores(unorderedScores, highestPossibleScore) {
+
+    // Sort the scores in O(n) time
+    
+    let ar = new Array(highestPossibleScore+1)
+    for (const score of unorderedScores) {
+      if (ar[score]!==undefined) {ar[score]++}
+      else {ar[score]=1}
+    }
+    arIndex=0
+    for (let i=highestPossibleScore; i >= 0; i--) {
+      if (ar[i] > 0) {
+        for (j=0; j < ar[i]; j++){
+          unorderedScores[arIndex]=i
+          arIndex++
+        }
+      }
+    }
+    return unorderedScores
+  }
+
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
