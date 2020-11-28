@@ -272,6 +272,25 @@ function reverseWords(message) {
     return unorderedScores
   }
 
+  function highestProductOf3(arrayOfInts) {
+
+    // Calculate the highest product of three numbers
+    let highestProd3, highestProd2, highest, lowest, lowestProd2, lowestProd3
+    if (arrayOfInts.length < 3){ throw new Error }
+    highest = Math.max(arrayOfInts[0], arrayOfInts[1])
+    lowest = Math.min(arrayOfInts[0], arrayOfInts[1])
+    highestProd2 = arrayOfInts[0]*arrayOfInts[1]
+    lowestProd2 = arrayOfInts[0]*arrayOfInts[1]
+    highestProd3 = highestProd2*arrayOfInts[2]
+    for (let i=2; i < arrayOfInts.length; i++) {
+      highestProd3 = Math.max(highestProd3, arrayOfInts[i]*highestProd2, arrayOfInts[i]*lowestProd2)
+      highestProd2 = Math.max(highestProd2, arrayOfInts[i]*highest, arrayOfInts[i]*lowest)
+      lowestProd2 = Math.min(lowestProd2, arrayOfInts[i]*highest, arrayOfInts[i]*lowest)
+      highest = Math.max(highest, arrayOfInts[i])
+      lowest = Math.min(lowest, arrayOfInts[i])
+    }
+    return highestProd3;
+  }
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
