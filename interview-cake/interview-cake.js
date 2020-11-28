@@ -292,6 +292,29 @@ function reverseWords(message) {
     return highestProd3;
   }
 
+  function getProductsOfAllIntsExceptAtIndex(intArray) {
+
+    // Make a list of the products
+    if (intArray.length < 2){throw new Error}
+    let prodAr = new Array(intArray.length)
+    prodAr[0] = 1
+    for (let i=1; i < intArray.length; i++) {
+      prodAr[i] = prodAr[i-1]*intArray[i-1]
+    }
+    let prodAr2 = new Array(intArray.length)
+    let prodAr3 = new Array(intArray.length)
+    prodAr3[intArray.length-1]=prodAr[intArray.length-1]
+    prodAr2[intArray.length-1] = 1
+    let prodSoFar = 1
+    for (let i=intArray.length-1; i >= 0; i--) {
+      prodAr[i] = prodSoFar*prodAr[i]
+      prodSoFar *= intArray[i]
+      // prodAr[i]=prodAr[i+1]*prodAr[i]
+    }
+  
+    return prodAr;
+  }
+
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
 
 // let test =   [
