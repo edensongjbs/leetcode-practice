@@ -330,6 +330,20 @@ function reverseWords(message) {
     }
     return array
   }
+
+  function getPermutations(string) {
+
+    // Generate all permutations of the input string
+    if (string.length===1){return newSet(string)}
+    let returnSet = new Set()
+    
+    getPermutations(string.slice(1)).forEach(e => {
+      for (let i=0; i < e.length; i++) {
+        returnSet.add(e.slice(0,i)+string[0]+e.slice(i))
+      }
+    })
+    return returnSet;
+  }
   
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
