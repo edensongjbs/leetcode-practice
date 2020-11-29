@@ -348,6 +348,25 @@ function reverseWords(message) {
     })
     return returnSet;
   }
+
+  function fib(n) {
+
+    // Compute the nth Fibonacci number
+    let fibAr = new Array(3)
+    fibAr[0]=0
+    fibAr[1]=1
+    fibAr[2]=1
+    if (n < 0){throw new Error}
+    if (n <= 2){return fibAr[n]}
+    for (let i=3; i<=n; i++){
+      let tempFib=fibAr[2]+fibAr[1]
+      fibAr[0]=fibAr[1]
+      fibAr[1]=fibAr[2]
+      fibAr[2]=tempFib
+    }
+  
+    return fibAr[2];
+  }
   
   
 
