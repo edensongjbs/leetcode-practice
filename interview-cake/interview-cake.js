@@ -368,6 +368,21 @@ function reverseWords(message) {
     return fibAr[2];
   }
   
+  let obj={}
+
+function changePossibilities(amountLeft, denominations, refresh=true) {
+  if (refresh){obj={}}
+  // Calculate the number of ways to make change
+  if (obj[amountLeft]){return obj[amountLeft]}
+  if (amountLeft < 0){return 0}
+  if (amountLeft===0){return 1}
+  obj[amountLeft] = denominations.reduce((total, denomination) => {
+    let newAmount = amountLeft-denomination
+    return newAmount >= 0 ? total + changePossibilities(newAmount, denominations, false) : total
+  },0)
+  return obj[amountLeft]
+
+}
   
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
