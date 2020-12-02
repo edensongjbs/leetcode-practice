@@ -383,6 +383,38 @@ function changePossibilities(amountLeft, denominations, refresh=true) {
   return obj[amountLeft]
 
 }
+
+function findRotationPoint(words) {
+
+  // Find the rotation point in the vector
+  let startIndex=0, endIndex=words.length-1
+  while (startIndex!==endIndex) {
+    let midPoint = Math.round(startIndex+endIndex/2)
+    if (words[midPoint] > words[endIndex]) {
+      if (words[midPoint] > words[startIndex]){
+        startIndex = midPoint
+      }
+      else {
+        endIndex = midPoint
+      }
+    }
+    else {
+      if (words[midPoint] < words[midPoint-1]){
+        return midPoint
+      }
+      else {
+        if (words[midPoint] < words[startIndex]) {
+          endIndex = midPoint
+        }
+        else {
+          startIndex = midPoint
+        }
+      }
+    }
+  }
+
+  return startIndex;
+}
   
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
