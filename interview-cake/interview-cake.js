@@ -415,6 +415,56 @@ function findRotationPoint(words) {
 
   return startIndex;
 }
+
+// Bad Answer
+// function maxDuffelBagValue(cakeTypes, weightCapacity, sorted=false) {
+
+//   // Calculate the maximum value we can carry
+//   if (!sorted){
+//     cakeTypes.sort((a,b) => {
+//       let ratioA = a.weight===0 ? 0 : a.value/a.weight
+//       let ratioB = b.weight===0 ? 0 : b.value/b.weight
+//       return ratioB-ratioA
+//     })
+//   }
+  
+//   let roomRemaining = weightCapacity
+//   let totalVal = 0
+  
+//   for (const cake of cakeTypes){
+//     if cake.value
+//   }
+  
+  
+//   for (cake of cakeTypes){
+//     while (cake.weight < roomRemaining) {
+//       totalVal += cake.value
+//       roomRemaining -= cake.weight
+//     }
+//   }
+//   return totalVal
+// }
+
+// class Solution {
+//   public int twoCitySchedCost(int[][] costs) {
+//     // Sort by a gain which company has 
+//     // by sending a person to city A and not to city B
+//     Arrays.sort(costs, new Comparator<int[]>() {
+//       @Override
+//       public int compare(int[] o1, int[] o2) {
+//         return o1[0] - o1[1] - (o2[0] - o2[1]);
+//       }
+//     });
+
+//     int total = 0;
+//     int n = costs.length / 2;
+//     // To optimize the company expenses,
+//     // send the first n persons to the city A
+//     // and the others to the city B
+//     for (int i = 0; i < n; ++i) total += costs[i][0] + costs[i + n][1];
+//     return total;
+//   }
+// }
   
 
 module.exports = { hiCal, reverseStringInPlace, reverseWordInPlace }
