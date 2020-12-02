@@ -98,3 +98,239 @@ function findGrantsCap(grantsArray, newBudget):
     return grantsArray[i+1] + (-surplus / float(i+1))
 
     */
+
+    // Jewels and Stones
+
+/*
+You're given strings J representing the types of stones that are jewels, and S representing the stones you have.  
+Each character in S is a type of stone you have.  You want to know how many of the stones you have are also jewels.
+
+The letters in J are guaranteed distinct, and all characters in J and S are letters. 
+Letters are case sensitive, so "a" is considered a different type of stone from "A".
+
+Example 1:
+
+Input: J = "aA", S = "aAAbbbb"
+Output: 3
+Example 2:
+
+Input: J = "z", S = "ZZ"
+Output: 0
+Note:
+
+S and J will consist of letters and have length at most 50.
+The characters in J are distinct.
+
+in: j="" s=""
+out: 
+edge: j='' return 0, 
+*/
+
+var numJewelsInStones = function(J, S) {
+  if (!J.length || !S.length ) return 0
+  let set = new Set([])
+  for (let i=0; i < J.length; i++){
+    set.add(J[i])
+  }
+  let count=0
+  for (let i=0; i < S.length; i++) {
+    if (set.has(S[i])) count++
+  }
+  return count
+};
+
+// Jewels and Stones
+
+/*
+You're given strings J representing the types of stones that are jewels, and S representing the stones you have.  
+Each character in S is a type of stone you have.  You want to know how many of the stones you have are also jewels.
+
+The letters in J are guaranteed distinct, and all characters in J and S are letters. 
+Letters are case sensitive, so "a" is considered a different type of stone from "A".
+
+Example 1:
+
+Input: J = "aA", S = "aAAbbbb"
+Output: 3
+Example 2:
+
+Input: J = "z", S = "ZZ"
+Output: 0
+Note:
+
+S and J will consist of letters and have length at most 50.
+The characters in J are distinct.
+
+in: j="" s=""
+out: 
+edge: j='' return 0, 
+*/
+
+var numJewelsInStones = function(J, S) {
+  if (!J.length || !S.length ) return 0
+  let set = new Set([])
+  for (let i=0; i < J.length; i++){
+    set.add(J[i])
+  }
+  let count=0
+  for (let i=0; i < S.length; i++) {
+    if (set.has(S[i])) count++
+  }
+  return count
+};
+
+console.log(numJewelsInStones("aA", "aAAbbbb"), 3);
+console.log(numJewelsInStones("z", "ZZ"), 0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+function counterPartOf(paren) {
+if (paren===')'){return '('}
+if (paren===']'){return '['}
+if (paren==='}'){return '{'}
+}
+*/
+
+
+/*
+
+
+function validParens(string) {
+
+const hashmap = {
+
+  '}': '{',
+  ']': '[',
+  ')': '('
+};
+
+if (string.length < 1) return true;
+if (string.length % 2 === 1) return false;
+let theStack = [];
+const openParens="([{";
+for (let i=0; i < string.length; i++) {
+  if (openParens.includes(string[i])) {
+    theStack.push(string[i])
+  }
+  else {
+    if (theStack.pop()!== hashmap[string[i]]) return false;
+  }
+}
+return theStack.length ? false : true;
+}
+
+console.log(validParens('()'), 'true');
+console.log(validParens('()[]{}'), 'true');
+console.log(validParens('(]'), 'false');
+console.log(validParens('([)]'), 'false');
+console.log(validParens('{[]}'), 'true');
+
+
+
+*/
+
+/*
+Valid Parentheses
+
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+
+
+Example 1:
+
+Input: s = "()"
+Output: true
+Example 2:
+
+Input: s = "()[]{}"
+Output: true
+Example 3:
+
+Input: s = "(]"
+Output: false
+Example 4:
+
+Input: s = "([)]"
+Output: false
+Example 5:
+
+Input: s = "{[]}"
+Output: true
+
+
+Constraints:
+
+1 <= s.length <= 104
+s consists of parentheses only '()[]{}'.
+
+*/
+
+/*
+input: string
+output: boolean
+edge-cases: empty string: true, odd-numbered string would be false
+
+pseudo-code:
+'()' stack = (
+
+from i=0...string.length-1 {
+if string[i] is one of (.[,{ {
+  push string[i] to stack
+}
+else {
+  if stack.pop()!== counterPartOf[string[i]] {return false}
+}
+return false
+}
+
+*/
+
+console.log(numJewelsInStones("aA", "aAAbbbb"), 3);
+console.log(numJewelsInStones("z", "ZZ"), 0);
+
