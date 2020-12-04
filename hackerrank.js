@@ -28,7 +28,7 @@ function createIndex ( book ) {
 
 /*
 {
-    the: {numTimes:3, pageAppearances:{1, 2, 2}}
+    the: {numTimes:3, pageAppearances:{1, 2}, heapIndex:}
 }
 */
 
