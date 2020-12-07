@@ -355,3 +355,13 @@ var merge = function(nums1, m, nums2, n) {
     }
     return nums1
 };
+
+var rob = function(nums) {
+    oddCount=0
+    evenCount=0
+    for (let i=0; i<nums.length; i++){
+        if (i%2===0) evenCount+=nums[i]
+        else oddCount+=nums[i]
+    }
+    return Math.max(oddCount, evenCount)
+};
