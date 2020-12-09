@@ -365,3 +365,62 @@ var rob = function(nums) {
     }
     return Math.max(oddCount, evenCount)
 };
+
+/**
+ * @param {number[]} data
+ * @return {number}
+ */
+
+
+let countOnes = (ar) => {
+    let count=0
+    for (let i=0; i<ar.length; i++){
+        if (ar[i]===1) count++
+    }
+    return count
+}
+
+var minSwaps = function(data) {
+    let totalOnes = countOnes(data)
+    if (totalOnes <= 1) return 0
+    let maxCount=countOnes(data.slice(0,totalOnes))
+    let currentCount = maxCount
+    for (let i=0; i<(data.length-totalOnes); i++) {
+        if (data[i]===0 && data[totalOnes+i]===1) {
+            currentCount++
+        }
+        else if (data[i]===1 && data[totalOnes+i]===0) currentCount--
+        maxCount = Math.max(maxCount, currentCount)
+    }
+    return totalOnes-maxCount
+};
+
+/*
+edge-case: if 0 or 1 1's, then return 0
+
+[0,1,1,1,1,0,1,0,0,0,]
+[           ]
+
+
+0:3
+1:2
+2:3
+4:3
+5:3
+
+
+[1,0,1,0,1,0] [0,0,1,1,1,1]
+
+[1,0,0,0,1][0,0,1,0]
+
+
+[1,0,1,0,1,0,1,1,1,0,1,0,0,1,1,1,0,0,1,1,1,0,1,0,1,1,0,0,0,1,1,1,1,0,0,1] //21
+  [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x]
+
+0:
+
+
+
+
+
+*/
