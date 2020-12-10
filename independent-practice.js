@@ -451,3 +451,23 @@ edge-case: if 0 or 1 1's, then return 0
 
 
 */
+
+function hasRepeatDigits(ar, firstNum, restNums) {
+    if (restNums.filter(e => e==="0").length > 1) return 1
+    if (ar[restNums.filter(e => e!=="0").join('')]) return 1
+    if (ar[restNums.join('')]) return 1
+    if (restNums.includes(firstNum)) return 1
+    return 0
+}
+
+
+var numDupDigitsAtMostN = function(N) {
+    let count=0, ar= new Array(N+1).fill(0)
+    for (let i=0; i<=N; i++){
+        let stringI = i.toString()
+        let arI=stringI.split('').slice(1)
+        ar[stringI]=hasRepeatDigits(ar, stringI[0], arI)
+        if (ar[stringI]) count++
+    }
+    return count
+};
