@@ -395,6 +395,33 @@ var minSwaps = function(data) {
     return totalOnes-maxCount
 };
 
+/* maximal Square - good solution!!  better than 75% on time and 91% on space
+function checkLastRowColOfSquare(matrix,y,x,lim) {
+    if (!matrix[y+lim]) return false
+    if (!matrix[y+lim][x+lim]) return false
+    for (let i=0; i<=lim; i++) {
+        if (matrix[y+lim][x+i]!=="1") return false
+        if (matrix[y+i][x+lim]!=="1") return false
+    }
+    return true
+}
+
+var maximalSquare = function(matrix) {
+    let max=0
+    for (let i1=0; i1 < matrix.length; i1++) {
+        for (let i2=0; i2 < matrix[i1].length; i2++) {
+            if (matrix[i1][i2]==="1"){
+                let moreRowCols=1
+                while (checkLastRowColOfSquare(matrix, i1, i2, moreRowCols)){
+                    moreRowCols++
+                }
+                max = Math.max(max, moreRowCols)
+            }
+        }
+    }
+    return max**2
+};
+
 /*
 edge-case: if 0 or 1 1's, then return 0
 
