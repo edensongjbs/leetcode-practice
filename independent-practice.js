@@ -471,3 +471,25 @@ var numDupDigitsAtMostN = function(N) {
     }
     return count
 };
+
+function hasRepeatDigits(set, firstNum, restNums) {
+    if (!restNums.length) return 0
+    if (set.has(restNums.join(''))) return 1
+    if (restNums.includes(firstNum)) return 1
+    if (restNums[0]==="0") return hasRepeatDigits(set, restNums[0], restNums.slice(1))
+    return 0
+}
+
+
+var numDupDigitsAtMostN = function(N) {
+    let count=0, set = new Set
+    for (let i=0; i<=N; i++){
+        let stringI = i.toString()
+        let arI=stringI.split('').slice(1)
+        if (hasRepeatDigits(set, stringI[0], arI)){
+            set.add(stringI)
+            count++
+        }
+    }
+    return count
+};
