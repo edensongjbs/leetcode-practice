@@ -493,3 +493,20 @@ var numDupDigitsAtMostN = function(N) {
     }
     return count
 };
+/*
+not working
+/**
+ * @param {number} n
+ * @return {string}
+var convertToTitle = function(n) {
+    const convertObj= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    let excelCol=""
+    while (n > 26) {
+        let leftOver=n%26
+        excelCol+=convertObj[leftOver-1]
+        n-=26
+    }
+    excelCol+=convertObj[n-1]
+    return excelCol
+};
+*/
